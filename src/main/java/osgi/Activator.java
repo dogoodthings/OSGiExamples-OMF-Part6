@@ -1,12 +1,11 @@
 package osgi;
 
-import com.dscsag.plm.spi.interfaces.ECTRService;
-import com.dscsag.plm.spi.interfaces.gui.ob.PluginObjectBrowserTabService;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
-
 import org.osgi.framework.ServiceReference;
-import osgi.gui.ob.tab.MyTabServiceFactory;
+
+import com.dscsag.plm.spi.interfaces.ECTRService;
+import com.dscsag.plm.spi.interfaces.gui.PluginFunctionService;
 
 /**
  * Activator to register provided services
@@ -22,7 +21,7 @@ public class Activator implements BundleActivator
     // dictionary and so on.
     ECTRService ectrService = getService(context, ECTRService.class);
 
-    context.registerService(PluginFunctionService.class, new PluginFunctionManager(ectrService), null);  
+    context.registerService(PluginFunctionService.class, new PluginFunctionManager(ectrService), null);
   }
 
   @Override
